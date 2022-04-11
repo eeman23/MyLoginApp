@@ -21,7 +21,7 @@ public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView name, email;
     Button signOutBtn;
-
+//yo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
