@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    Button googleBtn;
+    ImageView googleBtn;
     //button used to be image view
 
     @Override
