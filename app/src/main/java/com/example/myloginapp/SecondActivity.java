@@ -16,6 +16,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.Calendar;
+
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -32,6 +34,7 @@ public class SecondActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         signOutBtn = findViewById(R.id.signout);
 
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
 
@@ -39,6 +42,7 @@ public class SecondActivity extends AppCompatActivity {
         if (acct!=null){
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
+            Calendar cal = Calendar.getInstance();
             name.setText(personName);
             email.setText(personEmail);
         }
