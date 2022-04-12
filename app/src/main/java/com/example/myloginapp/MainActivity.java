@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     SignInButton googleBtn;
     //button used to be image view
+    //check
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
