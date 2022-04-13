@@ -21,7 +21,6 @@ public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView name, email;
     Button signOutBtn;
-//yo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class SecondActivity extends AppCompatActivity {
         });
     }
 
-    void signOut() {
+   void signOut() {
         gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(Task<Void> task) {
@@ -58,5 +57,5 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(new Intent(SecondActivity.this,MainActivity.class));
             }
         });
-    }
+   }
 }
