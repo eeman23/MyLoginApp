@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_friends.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_logout.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_anhmain.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_main.xml" value="0.1339918946301925" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_second.xml" value="0.25" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_third.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_calendars.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_friends.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_third.xml" value="0.28940217391304346" />
