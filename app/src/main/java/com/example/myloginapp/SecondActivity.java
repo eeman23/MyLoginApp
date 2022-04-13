@@ -1,7 +1,7 @@
 package com.example.myloginapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +16,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.Calendar;
+
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name, email;
     Button signOutBtn;
+    Button homepage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +41,43 @@ public class SecondActivity extends AppCompatActivity {
         if (acct!=null){
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
+            Calendar cal = Calendar.getInstance();
             name.setText(personName);
             email.setText(personEmail);
         }
+
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signOut();
             }
         });
-    }
 
-   void signOut() {
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+       homepage = findViewById(R.id.homePage);
+        homepage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(Task<Void> task) {
-                finish();
-                startActivity(new Intent(SecondActivity.this,MainActivity.class));
+            public void onClick(View v) {
+             //  nextPage();
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
             }
         });
-   }
+    }
+
+
+            private void signOut() {
+                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(Task<Void> task) {
+                        finish();
+                        startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                    }
+                });
+            }
+
+            private void nextPage() {
+                finish();
+                Intent intent = new Intent(this, ThirdActivity.class);
+                startActivity(intent);
+            }
 }

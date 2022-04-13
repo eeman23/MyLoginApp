@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    android:onClick="goHome"
+    tools:context=".SecondActivity"
+    tools:openDrawer="start">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome"
         android:layout_centerHorizontal="true"
-        android:textSize="34sp"
-        />
+        android:textSize="34sp"></TextView>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,11 +41,30 @@
         />
 
     <Button
+        android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/signout"
-        android:text="Sign Out"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:background="#00BCD4"
+        android:text="Sign Out" />
+
+
+    <Button
+        android:id="@+id/homePage"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_below="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignEnd="@+id/email"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-86dp"
+        android:layout_marginTop="154dp"
+        android:layout_marginEnd="-87dp"
+        android:layout_marginBottom="92dp"
+        android:background="#3F51B5"
+        android:backgroundTint="#009C27B0"
+        android:text="Click here to continue!" />
+
 
 </RelativeLayout>

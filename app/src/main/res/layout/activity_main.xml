@@ -24,7 +24,9 @@
         android:id="@+id/googleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signin">
+        android:layout_below="@id/signin"
+        >
+
     </com.google.android.gms.common.SignInButton>
 
 </RelativeLayout>
