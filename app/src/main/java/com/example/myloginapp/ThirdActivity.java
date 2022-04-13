@@ -1,5 +1,6 @@
 package com.example.myloginapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -11,10 +12,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 public class ThirdActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
+    GoogleSignInClient gsc;
+    GoogleSignInOptions gso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +39,8 @@ public class ThirdActivity extends AppCompatActivity implements NavigationView.O
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
@@ -60,7 +69,7 @@ public class ThirdActivity extends AppCompatActivity implements NavigationView.O
                 break;
 
             case R.id.nav_logout:
-                Toast.makeText(this,"Log Out", Toast.LENGTH_SHORT).show();
+                signOut();
                 break;
         }
 
@@ -68,6 +77,15 @@ public class ThirdActivity extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    private void signOut() {
+        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(Task<Void> task) {
+                finish();
+                startActivity(new Intent(ThirdActivity.this, MainActivity.class));
+            }
+        });
+    }
     @Override
     public void onBackPressed(){
         if (drawer.isDrawerOpen(GravityCompat.START)){
