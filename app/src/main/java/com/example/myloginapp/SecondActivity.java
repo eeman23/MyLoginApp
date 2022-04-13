@@ -1,7 +1,7 @@
 package com.example.myloginapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView name, email;
     Button signOutBtn;
-//yo
+    Button homepage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ public class SecondActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         signOutBtn = findViewById(R.id.signout);
-
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
@@ -46,21 +45,39 @@ public class SecondActivity extends AppCompatActivity {
             name.setText(personName);
             email.setText(personEmail);
         }
+
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signOut();
             }
         });
-    }
 
-    void signOut() {
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+       homepage = findViewById(R.id.homePage);
+        homepage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(Task<Void> task) {
-                finish();
-                startActivity(new Intent(SecondActivity.this,MainActivity.class));
+            public void onClick(View v) {
+             //  nextPage();
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
             }
         });
     }
+
+
+            private void signOut() {
+                gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(Task<Void> task) {
+                        finish();
+                        startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                    }
+                });
+            }
+
+            private void nextPage() {
+                finish();
+                Intent intent = new Intent(this, ThirdActivity.class);
+                startActivity(intent);
+            }
 }

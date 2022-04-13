@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    android:onClick="goHome"
+    tools:context=".SecondActivity"
+    tools:openDrawer="start">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome"
         android:layout_centerHorizontal="true"
-        android:textSize="34sp"
-        />
+        android:textSize="34sp"></TextView>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,6 +48,7 @@
         android:layout_centerHorizontal="true"
         android:text="Sign Out" />
 
+
     <Button
         android:id="@+id/homePage"
         android:layout_width="wrap_content"
@@ -57,5 +62,12 @@
         android:layout_marginEnd="-87dp"
         android:layout_marginBottom="92dp"
         android:text="Click here to continue!" />
+
+    <Button
+        android:id="@+id/wdym"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 
 </RelativeLayout>
