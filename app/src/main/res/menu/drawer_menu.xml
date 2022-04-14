@@ -17,7 +17,6 @@
             android:id="@+id/nav_friends"
             android:icon="@drawable/ic_friends"
             android:title="Friends" />
-
     </group>
 
     //This is an action that will not stay selected and will only perform an action
