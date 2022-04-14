@@ -80,4 +80,9 @@ public class SecondActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ThirdActivity.class);
                 startActivity(intent);
             }
+
+            public TextView getName(){
+                return name;
+            }
+
 }
