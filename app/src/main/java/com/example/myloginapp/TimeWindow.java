@@ -24,39 +24,6 @@ public class TimeWindow {
     }
 
     //method
-    public void createWindow() {
-        //hour is in military time
-        for (int i = 0; i <= duration * 48; i++) {
-            TimeFrame object = new TimeFrame(bMonth, bDay, bYear, hour, minute);
-            window.add(object);
-            minute += 30;
-            check();
-        }
-    }
-
-    public void check(){
-        if (minute == 60) {
-            hour++;
-            minute = 0;
-        }
-
-        if (hour == 24) {
-            bDay += 1;
-            hour = 0;
-        }
-        //make methods to handle the changing of the month (february)
-        //assuming each month has 30 days
-        if (bDay == 31) {
-            bMonth++;
-            bDay = 1;
-        }
-
-        if (bMonth == 13) {
-            bYear++;
-            bMonth = 1;
-        }
-    }
-
     //these three methods are created but have not been implemented in the actual code
     public boolean isFebruary(){
       boolean boo = false;
@@ -75,17 +42,16 @@ public class TimeWindow {
        return boo;
     }
 
-    public boolean isLeapYear(){
-       boolean boo = false;
-        if (bMonth % 4 == 0){
+    public boolean isLeapYear() {
+        boolean boo = false;
+        if (bMonth % 4 == 0) {
             boo = true;
         }
         return boo;
-=======
-    
-    
+
+    }
     //method
-    public void createWindow (){
+    public void createWindow () {
         //hour is in military time
         for (int i = 0; i <= duration * 48; i++) {
         	TimeFrame object = new TimeFrame(bMonth, bDay, bYear, hour, minute);
