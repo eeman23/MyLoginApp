@@ -15,7 +15,7 @@ public class TimeWindow{
         this.bDay = bDay;
         this.bYear = bYear;
         this.bMonth = bMonth;
-        //duration is in term of dates
+        //duration is in term of days
         this.duration = duration;
     }
     //method
