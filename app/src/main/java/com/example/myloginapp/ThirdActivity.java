@@ -18,29 +18,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
-public class ThirdActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ThirdActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+        String name = getIntent().getStringExtra("name");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this,gso);
-        if(savedInstanceState == null){
+        gsc = GoogleSignIn.getClient(this, gso);
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
@@ -51,7 +52,7 @@ public class ThirdActivity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_friends:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new FriendsFragment()).commit();
@@ -85,18 +86,17 @@ public class ThirdActivity extends AppCompatActivity implements NavigationView.O
             }
         });
     }
+
     @Override
-    public void onBackPressed(){
-        if (drawer.isDrawerOpen(GravityCompat.START)){
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
+        } else {
             super.onBackPressed();
         }
 
 
     }
-
 
 
 }
