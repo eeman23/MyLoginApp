@@ -59,6 +59,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
              //  nextPage();
                 Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                intent.putExtra("name", acct.getDisplayName());
                 startActivity(intent);
             }
         });
