@@ -1,35 +1,25 @@
 package com.example.myloginapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
-import java.util.Calendar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
-    GoogleSignInOptions gso;
+  /*  GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     TextView name, email;
     Button signOutBtn;
+    */
     Button homepage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+/*
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         signOutBtn = findViewById(R.id.signout);
@@ -52,20 +42,22 @@ public class SecondActivity extends AppCompatActivity {
                 signOut();
             }
         });
-
+*/
        homepage = findViewById(R.id.homePage);
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
              //  nextPage();
                 Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-                intent.putExtra("name", acct.getDisplayName());
+                /*intent.putExtra("name", acct.getDisplayName());
                 startActivity(intent);
+
+                 */
             }
         });
     }
 
-
+/*
             private void signOut() {
                 gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -75,15 +67,15 @@ public class SecondActivity extends AppCompatActivity {
                     }
                 });
             }
-
+*/
             private void nextPage() {
                 finish();
                 Intent intent = new Intent(this, ThirdActivity.class);
                 startActivity(intent);
             }
-
+/*
             public TextView getName(){
                 return name;
             }
-
+*/
 }
