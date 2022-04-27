@@ -17,4 +17,5 @@
         android:hint="@string/search_friends_text"
         android:inputType="textPersonName" />
 
+
 </RelativeLayout>
