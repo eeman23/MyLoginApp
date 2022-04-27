@@ -1,31 +1,33 @@
 package com.example.myloginapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.CheckBox;
+public class CrossCheck {
+    public ArrayList<Users> maxAvailable;
+    public int numAvailable;
+    public int numUsers;
+    public Users[][] times;
 
-public class CrossCheck extends AppCompatActivity {
-    public CheckBox checkBox;
-    public TimeFrame block;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cross_check);
 
-        checkBox = (CheckBox) findViewById(R.id.checkBox2);
-        checkBox.setOnClickListener((View.OnClickListener) this);
+    public CrossCheck(Users[][] times, int numUsers) {
+        maxAvailable = new ArrayList();
+        this.times = times;
+        this.numUsers = numUsers;
+        this.numAvailable=0;
 
-        block = new TimeFrame(4,23,2022,12,54);
-    }
-
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.checkBox2:
-                block.setAvailable();
-                break;
+        for(int i = 0; i<times.length; i++) {
+            for(int j = 0; j<times[0].length; j++) {
+                if(times[i][j].numAvailable()>numAvailable) {
+                    numAvailable = times[i][j].numAvailable();
+                }
+            }
+        }
+        for(int i = 0; i<times.length; i++) {
+            for(int j = 0; j<times[0].length; j++) {
+                if(times[i][j].numAvailable()==numAvailable) {
+                    maxAvailable.add(times[i][j]);
+                }
+            }
         }
     }
 }
