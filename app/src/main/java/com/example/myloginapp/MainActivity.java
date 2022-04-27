@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this,gso);
 
 
+
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

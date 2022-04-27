@@ -11,13 +11,13 @@ public class TimeFrame {
 
     //constructor
     //multiple constructors
-    public TimeFrame(int m, int da, int y, int h, int min){
-        month = m;
-        day = da;
-        year= y;
-        hour = h;
-        minute = min;
-        available = false;
+    public TimeFrame(int month, int day, int year, int hour, int minute){
+        this.month = month;
+        this.day = day;
+        this.year= year;
+        this.hour = hour;
+        this.minute = minute;
+        this.available = false;
     }
 
     //methods
@@ -47,6 +47,10 @@ public class TimeFrame {
 
     public void setAvailable(){
         available = true;
+    }
+
+    public String toString() {
+       return month + "/" + day + "/" + year + "," + hour + ":" + minute;
     }
 
 
