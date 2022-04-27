@@ -9,9 +9,8 @@ package com.example.myloginapp;
         import android.widget.Button;
         import android.widget.TextView;
 
-        import com.google.android.gms.auth.api.signin.GoogleSignIn;
-        import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-        import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+
+
         import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
         import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;

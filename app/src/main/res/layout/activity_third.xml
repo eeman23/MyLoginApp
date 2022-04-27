@@ -10,11 +10,11 @@
     tools:context=".ThirdActivity"
     tools:openDrawer="start">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -25,12 +25,13 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         </androidx.appcompat.widget.Toolbar>
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        />
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -39,7 +40,14 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_menu">
-    </com.google.android.material.navigation.NavigationView>
+        app:menu="@menu/drawer_menu"></com.google.android.material.navigation.NavigationView>-->
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

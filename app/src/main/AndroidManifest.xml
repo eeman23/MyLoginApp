@@ -12,24 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLoginApp">
         <activity
+            android:name=".CrossCheck"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterUser"
+            android:exported="false" />
+        <activity
             android:name=".NavActivity"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
-           />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CalendarActivity"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
-           />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ThirdActivity"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SecondActivity"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
