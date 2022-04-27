@@ -49,9 +49,6 @@ public class TimeFrame {
         available = true;
     }
 
-    public String toString() {
-       return month + "/" + day + "/" + year + "," + hour + ":" + minute;
-    }
 
 
 
