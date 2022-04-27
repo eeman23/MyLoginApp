@@ -1,5 +1,4 @@
 package com.example.myloginapp;
-
 public class TimeFrame {
     //data
     private int month;
@@ -22,7 +21,9 @@ public class TimeFrame {
     }
 
     //methods
-
+    public String toString() {
+    	return month + "/" + day + "/" + year + ", " + hour + ":" + minute + " | ";
+    }
     //make getters for each data
     public int getMonth(){
         return month;
@@ -55,3 +56,4 @@ public class TimeFrame {
 
 
 }
+
