@@ -3,13 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
-        <entry key="app/src/main/res/font/.xml" value="0.34010416666666665" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2072708129882812" />
-        <entry key="app/src/main/res/layout/activity_second.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_third.xml" value="0.15833333333333333" />
-        <entry key="app/src/main/res/layout/nav_header.xml" value="0.15833333333333333" />
-
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_friends.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/drawable/ic_logout.xml" value="0.1" />
@@ -21,15 +14,16 @@
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_register_user.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_second.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/activity_third.xml" value="0.1" />
-        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_calendars.xml" value="0.75" />
+        <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_calendars.xml" value="0.21294363256784968" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_friends.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Users/anhtr/MyLoginApp/app/src/main/res/menu/drawer_menu.xml" value="0.5" />
+        <entry key="app/src/main/res/font/.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_third.xml" value="0.28940217391304346" />
-
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.15833333333333333" />
       </map>
     </option>
   </component>

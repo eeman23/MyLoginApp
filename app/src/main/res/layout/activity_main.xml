@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/signin"
+        android:id="@+id/welcomeMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/enterEmailText"
+        android:id="@+id/enterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
 
     <EditText
-        android:id="@+id/enterPasswordText"
+        android:id="@+id/enterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterEmailText" />
+        app:layout_constraintTop_toBottomOf="@+id/enterEmail" />
 
     <Button
         android:id="@+id/signInButton"
@@ -56,29 +56,29 @@
         android:text="Sign In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/enterPassword" />
 
     <TextView
-        android:id="@+id/forgotPasswordText"
+        android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Forgot Password?"
-        app:layout_constraintEnd_toStartOf="@+id/signUpText"
+        app:layout_constraintEnd_toStartOf="@+id/signUpTextMain"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/enterPassword" />
 
     <TextView
-        android:id="@+id/signUpText"
+        android:id="@+id/signUpTextMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/forgotPasswordText"
-        app:layout_constraintTop_toBottomOf="@+id/enterPasswordText" />
+        app:layout_constraintStart_toEndOf="@+id/forgotPassword"
+        app:layout_constraintTop_toBottomOf="@+id/enterPassword" />
 
     <ProgressBar
         android:id="@+id/progressBar"
