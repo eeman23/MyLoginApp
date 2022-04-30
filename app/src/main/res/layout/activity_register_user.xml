@@ -49,7 +49,7 @@
         android:textColorHint="#000000" />
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/signUpButtonReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
