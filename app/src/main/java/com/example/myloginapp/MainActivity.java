@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SignInButton googleBtn;
     private FirebaseAuth mAuth;
     private TextView signUp, welcomeMessage;
-    private EditText enterEmail, enterPassword, enterUserName;
+    private EditText enterPassword, enterUserName;
     private Button signInButton;
     private ProgressBar progressBar;
     //button used to be image view
@@ -36,18 +36,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+
         signUp = findViewById(R.id.signUpTextMain);
         signUp.setOnClickListener(this);
-
         signInButton = findViewById(R.id.signInButton);
         signInButton.setOnClickListener(this);
-
-        mAuth = FirebaseAuth.getInstance();
 
         welcomeMessage = findViewById(R.id.welcomeMessage);
         welcomeMessage.setOnClickListener(this);
 
-        enterEmail = findViewById(R.id.enterEmail);
         enterPassword= findViewById(R.id.enterPassword);
         enterUserName = findViewById(R.id.enterUserName);
 

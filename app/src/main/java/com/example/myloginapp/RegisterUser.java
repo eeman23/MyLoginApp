@@ -1,31 +1,36 @@
 package com.example.myloginapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private TextView welcomeMessage;
     private EditText enterEmail, enterPassword, enterUserName;
-    private Button signInButton;
     private ProgressBar progressBar;
+    private Button signUpButtonReg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-
-
-        signInButton = (Button) findViewById(R.id.signInButton);
-        signInButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -33,24 +38,24 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         welcomeMessage.setOnClickListener(this);
 
         enterEmail = findViewById(R.id.enterEmail);
-        enterPassword= findViewById(R.id.enterPassword);
+        enterPassword = findViewById(R.id.enterPassword);
         enterUserName = findViewById(R.id.enterUserName);
 
         progressBar = findViewById(R.id.progressBar);
-
-
+        signUpButtonReg = findViewById(R.id.signUpButtonReg);
+        signUpButtonReg.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-
-            case R.id.signInButton:
-                startActivity(new Intent(this,ThirdActivity.class));
-                break;
+        switch (view.getId()) {
 
             case R.id.welcomeMessage:
-                startActivity((new Intent (this, MainActivity.class)));
+                startActivity((new Intent(this, MainActivity.class)));
+                break;
+
+            case R.id.signUpButtonReg:
+                signUpUser();
                 break;
 
         }
@@ -61,28 +66,64 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String password = enterPassword.getText().toString().trim();
         String username = enterUserName.getText().toString().trim();
 
-        if(email.isEmpty()){
+        if (username.isEmpty()) {
+            enterUserName.setError("Username is empty!");
+            enterUserName.requestFocus();
+            return;
+        }
+        if (email.isEmpty()) {
             enterEmail.setError("Email is not valid!");
             enterEmail.requestFocus();
             return;
         }
 
-        if(password.isEmpty()){
-           enterPassword.setError("Password is empty!");
-           enterPassword.requestFocus();
+        if (password.isEmpty()) {
+            enterPassword.setError("Password is empty!");
+            enterPassword.requestFocus();
             return;
         }
 
-        if(username.isEmpty()){
-            enterUserName.setError("Username is empty!");
-            enterUserName.requestFocus();
-            return;
-        }
-
-        if(password.length() < 3){
+        if (password.length() < 6) {
             enterPassword.setError("Password needs to have more than 3 characters!");
             enterPassword.requestFocus();
             return;
         }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            enterEmail.setError("Please provide a valid email");
+            enterEmail.requestFocus();
+            return;
+        }
+
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            User user = new User(username, email);
+
+                            //Setting the ID of the new account from Firebase to the user object
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(RegisterUser.this, "Signed Up sucessfully!", Toast.LENGTH_LONG).show();
+
+                                            } else {
+                                                Toast.makeText(RegisterUser.this, "Signed Up Failed!", Toast.LENGTH_LONG).show();
+                                            }
+                                                                              }
+                                                                          }
+
+                            );
+                        }
+                    }
+
+
+                });
     }
 }
