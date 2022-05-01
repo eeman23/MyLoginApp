@@ -1,9 +1,12 @@
 package com.example.myloginapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +19,9 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -25,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SignInButton googleBtn;
     private FirebaseAuth mAuth;
     private TextView signUp, welcomeMessage;
-    private EditText enterPassword, enterUserName;
+    private EditText enterPassword, enterEmail;
     private Button signInButton;
     private ProgressBar progressBar;
     //button used to be image view
@@ -47,11 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         welcomeMessage.setOnClickListener(this);
 
         enterPassword= findViewById(R.id.enterPassword);
-        enterUserName = findViewById(R.id.enterUserName);
+        enterEmail = findViewById(R.id.enterEmail);
 
         progressBar = findViewById(R.id.progressBar);
 
     }
+
 
     /*
         googleBtn = findViewById(R.id.googleButton);
@@ -107,7 +113,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.signInButton:
-                startActivity(new Intent(this,ThirdActivity.class));
+                String email = enterEmail.getText().toString().trim();
+                String password = enterPassword.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email)){
+                    enterEmail.setError("Email is required!");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(password)){
+                    enterPassword.setError("Password is required!");
+                    return;
+                }
+
+                if(password.length() < 6){
+                    enterPassword.setError("Password must be more than 6 characters!");
+                    return;
+                }
+
+                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(getApplicationContext(),ThirdActivity.class));
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this,"Sign In failed!",Toast.LENGTH_LONG);
+                        }
+                    }
+                });
                 break;
 
             case R.id.welcomeMessage:
